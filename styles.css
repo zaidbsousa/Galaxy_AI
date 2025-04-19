@@ -686,9 +686,10 @@ img {
 
 /* Contact Form Section */
 .contact {
-  backgound-color: var(--primary-blue);
+  background-color:  var(--primary-blue);
   background-image: url('images/BG2.png');
 }
+
 
 .contact .section-header {
   color: var(--white);
