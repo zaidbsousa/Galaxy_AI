@@ -1261,8 +1261,7 @@ textarea.form-control {
 /* No Results Message */
 .no-results {
     text-align: center;
-    padding: 40px;
-    color: var(--medium-gray);
+    padding: 20px;
     display: none;
 }
 
