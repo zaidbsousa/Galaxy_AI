@@ -140,10 +140,6 @@ img {
   gap: 30px;
 }
 
-.nav-list .nav-link.btn.btn-primary {
-  padding: 8px 20px;
-  font-size: 0.9rem;
-}
 .nav-link {
   font-weight: 500;
   position: relative;
@@ -667,13 +663,6 @@ img {
   margin: 1rem 0;
 }
 
-/* Zaid cerdintals css  
-.stat-divider {
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--primary-blue);
-} */
-
 .stat-divider {
   font-size: 3rem;
   font-weight: 700;
@@ -917,11 +906,6 @@ textarea.form-control {
   }
 }
 
-@media (max-width: 768px) {
-  .section {
-    padding: 50px 0;
-  }
-  
 @media (max-width: 768px) {
   .section {
     padding: 50px 0;
@@ -1284,47 +1268,3 @@ textarea.form-control {
 .no-results.visible {
     display: block;
 }
-
-/* Mobile-friendly hover states */
-@media (max-width: 768px) {
-  /* Path cards */
-  .path-card:active {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-
-  /* Benefit items */
-  .benefit-item:active {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  }
-
-  /* Inclusion items */
-  .inclusion-item:active {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  }
-
-  /* Stat cards */
-  .stat-card:active {
-    transform: translateY(-5px);
-  }
-
-  /* Feature cards */
-  .feature-card:active {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  }
-
-  /* CTA button */
-  .cta-button:active {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 102, 255, 0.3);
-  }
-
-  /* Social links */
-  .social-link:active {
-    background-color: var(--primary-blue);
-  }
-}
-
