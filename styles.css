@@ -1148,7 +1148,10 @@ textarea.form-control {
         box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
         border-radius: 0 0 0 8px;
     }
-
+/* Specific style for the nav bar contact button */
+.nav-list .nav-link.btn.btn-primary {
+  padding: 8px 20px;
+}
     .nav.active {
         right: 0;
     }
