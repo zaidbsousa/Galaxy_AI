@@ -16,11 +16,14 @@ function decodeHtmlEntities(str) {
 async function getCourseDetails(courseId) {
     try {
         console.log(`Fetching course details for ID: ${courseId}`);
+        // NOTE: This is a GET with no body, so no 'Content-Type' header is sent.
+        // Adding 'Content-Type: application/json' would turn this into a
+        // "non-simple" cross-origin request and force a CORS preflight (OPTIONS),
+        // which fails if the API/WAF doesn't answer it — keep it a simple request.
         const response = await fetch(`${BASE_URL}/courses/${courseId}`, {
             method: 'GET',
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Accept': 'application/json'
             }
         });
         
@@ -28,7 +31,10 @@ async function getCourseDetails(courseId) {
             console.error(`API Error: ${response.status} ${response.statusText}`);
             const errorText = await response.text();
             console.error('Error response:', errorText);
-            throw new Error(`API Error: ${response.status} - ${response.statusText}`);
+            // The request reached the API but it returned an error status. Show the
+            // status so it's clear this is the API responding (e.g. 404 course not
+            // found, 401/403 access restricted) rather than a connectivity problem.
+            throw new Error(`API responded with ${response.status} ${response.statusText}. The course may not exist or the endpoint is restricted.`);
         }
         
         const data = await response.json();
@@ -45,8 +51,14 @@ async function getCourseDetails(courseId) {
         return data;
     } catch (error) {
         console.error('Error fetching course details:', error);
-        if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
-            throw new Error('Network error: Unable to connect to the API. Please check your internet connection.');
+        // A TypeError here means fetch() never got a readable response. In a
+        // cross-origin call like this that almost always means the API is
+        // unreachable/down OR the API server blocked the cross-origin request
+        // (CORS / WAF), not that the visitor has no internet. The browser hides
+        // which one it is for security, so we point to both and to the console.
+        // (Chrome: "Failed to fetch", Firefox: "NetworkError...", Safari: "Load failed".)
+        if (error.name === 'TypeError' && /Failed to fetch|NetworkError|Load failed/i.test(error.message)) {
+            throw new Error('Unable to reach the AI Certs API. The service may be down or it may be blocking cross-origin (CORS) requests from this site. Open the browser console / Network tab for the exact reason.');
         }
         throw error;
     }
@@ -64,8 +76,7 @@ async function getCourseBadge(mediaId) {
         const response = await fetch(`${BASE_URL}/media/${mediaId}`, {
             method: 'GET',
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Accept': 'application/json'
             }
         });
         
@@ -101,8 +112,7 @@ async function getToolImage(mediaId) {
         const response = await fetch(`${BASE_URL}/media/${mediaId}`, {
             method: 'GET',
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Accept': 'application/json'
             }
         });
         
