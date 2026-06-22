@@ -141,7 +141,7 @@
 
 .exam-details {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
 
@@ -257,11 +257,12 @@
     }
 
     .exam-details-cards {
-        flex-direction: column;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
     }
 
     .exam-detail-card {
-        width: 100%;
+        padding: 12px;
     }
 
     .recommended-courses-grid {
@@ -779,13 +780,12 @@
 }
 
 .exam-details-cards {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
 
 .exam-detail-card {
-    flex: 1 1 calc(33.33% - 20px);
     padding: 15px;
     background-color: var(--light-gray);
     border-radius: 8px;
@@ -1268,5 +1268,138 @@
     .mobile-menu-toggle.active .menu-icon::after {
         transform: rotate(-45deg);
         bottom: 0;
+    }
+}
+
+/* --- Blue Themed Contact Form Styles --- */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #f4f8ff; /* light blue background */
+    border-radius: 10px;
+    box-shadow: 0 2px 16px rgba(0, 102, 255, 0.08);
+    border: 2.5px solid #d1ac3b;
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #222;
+    font-family: 'Poppins', 'Open Sans', Arial, sans-serif;
+    letter-spacing: 0.02em;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1.5px solid #b3d1ff;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: #222;
+    background: #fff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: #0066ff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.15);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #7fa7d9;
+    opacity: 1;
+    font-style: italic;
+}
+
+.contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact-form button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(90deg, #0066ff 60%, #0050b3 100%);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Poppins', 'Open Sans', Arial, sans-serif;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 102, 255, 0.10);
+    transition: background 0.3s, box-shadow 0.3s;
+    letter-spacing: 0.03em;
+}
+
+.contact-form button[type="submit"]:hover {
+    background: linear-gradient(90deg, #0050b3 60%, #003366 100%);
+    box-shadow: 0 4px 16px rgba(0, 102, 255, 0.18);
+}
+
+.contact-form button[type="submit"]:disabled {
+    background: #b3d1ff;
+    color: #fff;
+    cursor: not-allowed;
+}
+
+.form-success-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: center;
+    background: #e6f4ff;
+    color: #0066ff;
+    border: 1.5px solid #b3d1ff;
+    font-weight: 600;
+    font-family: 'Poppins', 'Open Sans', Arial, sans-serif;
+    animation: fadeIn 0.3s ease;
+}
+
+.form-error-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: center;
+    background: #fff0f3;
+    color: #d32f2f;
+    border: 1.5px solid #ffb3c1;
+    font-weight: 600;
+    font-family: 'Poppins', 'Open Sans', Arial, sans-serif;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 1.5rem;
+    }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+        font-size: 16px;
     }
 } 

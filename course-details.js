@@ -16,13 +16,10 @@ function decodeHtmlEntities(str) {
 async function getCourseDetails(courseId) {
     try {
         console.log(`Fetching course details for ID: ${courseId}`);
-        // NOTE: This is a GET with no body, so no 'Content-Type' header is sent.
-        // Adding 'Content-Type: application/json' would turn this into a
-        // "non-simple" cross-origin request and force a CORS preflight (OPTIONS),
-        // which fails if the API/WAF doesn't answer it — keep it a simple request.
         const response = await fetch(`${BASE_URL}/courses/${courseId}`, {
             method: 'GET',
             headers: {
+                // Keep this a simple cross-origin GET — adding Content-Type triggers a CORS preflight the AI Certs WAF rejects.
                 'Accept': 'application/json'
             }
         });
@@ -31,10 +28,7 @@ async function getCourseDetails(courseId) {
             console.error(`API Error: ${response.status} ${response.statusText}`);
             const errorText = await response.text();
             console.error('Error response:', errorText);
-            // The request reached the API but it returned an error status. Show the
-            // status so it's clear this is the API responding (e.g. 404 course not
-            // found, 401/403 access restricted) rather than a connectivity problem.
-            throw new Error(`API responded with ${response.status} ${response.statusText}. The course may not exist or the endpoint is restricted.`);
+            throw new Error(`API Error: ${response.status} - ${response.statusText}`);
         }
         
         const data = await response.json();
@@ -51,14 +45,8 @@ async function getCourseDetails(courseId) {
         return data;
     } catch (error) {
         console.error('Error fetching course details:', error);
-        // A TypeError here means fetch() never got a readable response. In a
-        // cross-origin call like this that almost always means the API is
-        // unreachable/down OR the API server blocked the cross-origin request
-        // (CORS / WAF), not that the visitor has no internet. The browser hides
-        // which one it is for security, so we point to both and to the console.
-        // (Chrome: "Failed to fetch", Firefox: "NetworkError...", Safari: "Load failed".)
-        if (error.name === 'TypeError' && /Failed to fetch|NetworkError|Load failed/i.test(error.message)) {
-            throw new Error('Unable to reach the AI Certs API. The service may be down or it may be blocking cross-origin (CORS) requests from this site. Open the browser console / Network tab for the exact reason.');
+        if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
+            throw new Error('Network error: Unable to connect to the API. Please check your internet connection.');
         }
         throw error;
     }
@@ -76,6 +64,7 @@ async function getCourseBadge(mediaId) {
         const response = await fetch(`${BASE_URL}/media/${mediaId}`, {
             method: 'GET',
             headers: {
+                // Keep this a simple cross-origin GET — adding Content-Type triggers a CORS preflight the AI Certs WAF rejects.
                 'Accept': 'application/json'
             }
         });
@@ -112,6 +101,7 @@ async function getToolImage(mediaId) {
         const response = await fetch(`${BASE_URL}/media/${mediaId}`, {
             method: 'GET',
             headers: {
+                // Keep this a simple cross-origin GET — adding Content-Type triggers a CORS preflight the AI Certs WAF rejects.
                 'Accept': 'application/json'
             }
         });
@@ -179,27 +169,21 @@ async function displayCourseDetails() {
         const passingScore = courseDetails.acf?.passing_score || 'N/A';
         const examinationTime = courseDetails.acf?.examination_time || 'N/A';
         const modulesCount = courseDetails.acf?.modules || 'N/A';
+        // Extract duration from second li only (Self-Paced part)
+        let duration = 'Self-Paced';
+        const rawDuration = courseDetails.acf?.at_a_glance_overview?.duration;
+        if (rawDuration) {
+            const temp = document.createElement('div');
+            temp.innerHTML = rawDuration;
+            const listItems = temp.querySelectorAll('li');
+            if (listItems.length >= 2) {
+                duration = listItems[1].textContent.trim();
+            } else if (listItems.length === 1) {
+                duration = listItems[0].textContent.trim();
+            }
+        }
         const tools = courseDetails.acf?.tools_data || [];
         const certificationModules = courseDetails.acf?.certification_modules || [];
-        
-        // Populate hidden form fields with course information
-        document.getElementById('courseId').value = courseId;
-        document.getElementById('courseName').value = courseDetails.title.rendered.replace('AI+','').replace('™','');
-        
-        // Determine course category based on course ID or other criteria
-        let courseCategory = 'essentials'; // default category
-        if (courseId >= 1067 && courseId <= 14803) {
-            courseCategory = 'essentials';
-        } else if (courseId >= 2000 && courseId < 3000) {
-            courseCategory = 'design';
-        } else if (courseId >= 3000 && courseId < 4000) {
-            courseCategory = 'specialized';
-        } else if (courseId >= 4000 && courseId < 5000) {
-            courseCategory = 'tech';
-        } else if (courseId >= 5000 && courseId < 6000) {
-            courseCategory = 'business';
-        }
-        document.getElementById('courseCategory').value = courseCategory;
         
         // Handle prerequisites: extract only <span data-contrast="auto"> text from each <li>, decode HTML entities, and build a clean <ul> list
         const rawPrerequisite = courseDetails.acf?.prerequisite || '';
@@ -285,10 +269,14 @@ async function displayCourseDetails() {
                     <i class="fas fa-signal"></i>
                     <span>${courseDetails.acf?.level || 'Beginner'}</span>
                 </div>
+                <div class="meta-item" id="courseDuration">
+                    <i class="fas fa-clock"></i>
+                    <span>${duration}</span>
+                </div>
               </div>
               <div class="course-hero-tagline">${courseDetails.acf?.course_tagline || ''}</div>
               <div class="course-hero-actions">
-                <a href="#contact" class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Enroll Now</a>
+                <a href="#contact-form" class="btn btn-primary">Enroll Now</a>
                 <a href="${courseDetails.link || '#'}" class="btn btn-secondary" target="_blank">Download Program Guide</a>
               </div>
             </div>
@@ -324,7 +312,7 @@ async function displayCourseDetails() {
             </div>
             
             <div class="course-section">
-                <h2>Exam Details</h2>
+                <h2>Course Details</h2>
                 <div class="exam-cards-row">
                   <div class="exam-card">
                     <div class="exam-card-icon"><i class="fas fa-star"></i></div>
@@ -341,45 +329,67 @@ async function displayCourseDetails() {
                     <div class="exam-card-title">Modules</div>
                     <div class="exam-card-desc" id="modulesCount">${modulesCount}</div>
                   </div>
+                  <div class="exam-card">
+                    <div class="exam-card-icon"><i class="fas fa-clock"></i></div>
+                    <div class="exam-card-title">Duration</div>
+                    <div class="exam-card-desc" id="courseDuration">${duration}</div>
+                  </div>
                 </div>
             </div>
-            
-            <div class="course-section">
-                <h2>Recommended Courses</h2>
-                <div class="recommended-courses-grid">
-                    <div class="recommended-course-card">
-                        <img src="images/Courses Cards/2.png" alt="Foundation" class="recommended-course-image">
-                        <div class="recommended-course-info">
-                            <h3 class="recommended-course-title">AI+ Foundation</h3>
-                            <div class="recommended-course-meta">
-                                <span><i class="fas fa-clock"></i> 6 Weeks</span>
-                                <span><i class="fas fa-signal"></i> Beginner</span>
-                            </div>
-                            <a href="course-details.html?id=28178" class="btn btn-secondary btn-sm">View Course</a>
+
+            <div class="course-section" id="contact-form">
+                <h2>Get in Touch</h2>
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form" action="process-form.php" method="POST">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name" required>
                         </div>
-                    </div>
-                    <div class="recommended-course-card">
-                        <img src="images/Courses Cards/3.png" alt="Prompt Level 1" class="recommended-course-image">
-                        <div class="recommended-course-info">
-                            <h3 class="recommended-course-title">AI+ Prompt Level 1</h3>
-                            <div class="recommended-course-meta">
-                                <span><i class="fas fa-clock"></i> 8 Weeks</span>
-                                <span><i class="fas fa-signal"></i> Beginner</span>
-                            </div>
-                            <a href="course-details.html?id=14803" class="btn btn-secondary btn-sm">View Course</a>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
                         </div>
-                    </div>
-                    <div class="recommended-course-card">
-                        <img src="images/Courses Cards/25.png" alt="Project Manager" class="recommended-course-image">
-                        <div class="recommended-course-info">
-                            <h3 class="recommended-course-title">AI+ Project Manager</h3>
-                            <div class="recommended-course-meta">
-                                <span><i class="fas fa-clock"></i> 10 Weeks</span>
-                                <span><i class="fas fa-signal"></i> Intermediate</span>
-                            </div>
-                            <a href="course-details.html?id=1075" class="btn btn-secondary btn-sm">View Course</a>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required>
                         </div>
-                    </div>
+
+                        <div class="form-group">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" id="city" name="city" class="form-control" placeholder="Enter your city" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category" class="form-label">Course Category</label>
+                            <select id="category" name="category" class="form-control" required>
+                                <option value="">Select a category</option>
+                                <option value="essentials">Essentials Courses</option>
+                                <option value="design">Design Courses</option>
+                                <option value="specialized">Specialized Courses</option>
+                                <option value="tech">Tech Courses</option>
+                                <option value="business">Business Courses</option>
+                                <option value="blockchain">Blockchain & Bitcoin Courses</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="course" class="form-label">Course</label>
+                            <select id="course" name="course" class="form-control" required>
+                                <option value="">Select a course</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="Tell us about your interests or questions"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-large">Submit Inquiry</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         `;
@@ -402,6 +412,77 @@ async function displayCourseDetails() {
           });
         }, 0);
         
+        // Pre-fill the form with course information
+        const categorySelect = document.getElementById('category');
+        const courseSelect = document.getElementById('course');
+        
+        // Find the category for the current course
+        let currentCategory = '';
+        for (const category in window.courses) {
+            const course = window.courses[category].find(c => c.id === courseId);
+            if (course) {
+                currentCategory = category;
+                break;
+            }
+        }
+        
+        if (currentCategory && categorySelect && courseSelect) {
+            categorySelect.value = currentCategory;
+            populateCourses(currentCategory, courseSelect, courseId);
+        }
+
+        // Attach the form submit event listener here
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                // Disable submit button and show loading state
+                const submitButton = contactForm.querySelector('button[type="submit"]');
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                try {
+                    // Get form data
+                    const formData = new FormData(contactForm);
+                    
+                    // Send form data
+                    const response = await fetch('process-form.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const data = await response.json();
+                    if (data.status === 'success') {
+                        // Show success message
+                        const successMessage = document.createElement('div');
+                        successMessage.className = 'form-success-message';
+                        successMessage.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! We will contact you shortly.';
+                        contactForm.appendChild(successMessage);
+                        // Reset form
+                        contactForm.reset();
+                        // Remove success message after 5 seconds
+                        setTimeout(() => {
+                            successMessage.remove();
+                        }, 5000);
+                    } else {
+                        throw new Error(data.message || 'Something went wrong');
+                    }
+                } catch (error) {
+                    // Show error message
+                    const errorMessage = document.createElement('div');
+                    errorMessage.className = 'form-error-message';
+                    errorMessage.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${error.message || 'Something went wrong. Please try again.'}`;
+                    contactForm.appendChild(errorMessage);
+                    // Remove error message after 5 seconds
+                    setTimeout(() => {
+                        errorMessage.remove();
+                    }, 5000);
+                } finally {
+                    // Reset submit button
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Submit Inquiry';
+                }
+            });
+        }
+        
     } catch (error) {
         console.error('Error in displayCourseDetails:', error);
         // Show error state with more specific error message
@@ -411,6 +492,21 @@ async function displayCourseDetails() {
                 <button onclick="displayCourseDetails()">Retry</button>
             </div>
         `;
+    }
+}
+
+function populateCourses(category, courseSelect, selectedCourseId) {
+    courseSelect.innerHTML = '<option value="">Select a course</option>';
+    if (window.courses && window.courses[category]) {
+        window.courses[category].forEach(course => {
+            const option = document.createElement('option');
+            option.value = course.id;
+            option.textContent = course.name;
+            if (selectedCourseId && course.id === selectedCourseId) {
+                option.selected = true;
+            }
+            courseSelect.appendChild(option);
+        });
     }
 }
 
@@ -446,4 +542,14 @@ document.addEventListener('DOMContentLoaded', function() {
             nav.classList.remove('active');
         }
     });
+
+    // Handle category and course selection
+    const categorySelect = document.getElementById('category');
+    const courseSelect = document.getElementById('course');
+
+    if (categorySelect && courseSelect) {
+        categorySelect.addEventListener('change', function() {
+            populateCourses(this.value, courseSelect);
+        });
+    }
 }); 

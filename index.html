@@ -10,9 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
@@ -55,6 +56,25 @@
         }
     }
     </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K1RNZECTTH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      // Cross-domain tracking config for all Galaxy subdomains
+      gtag('config', 'G-K1RNZECTTH', {
+        'linker': {
+          'domains': [
+            'tawjihi25.galaxy.ps',
+            'ai.galaxy.ps',
+            'social.galaxy.ps',
+            'scratch2win.galaxy.ps'
+          ]
+        }
+      });
+    </script>
 </head>
 <body>
     <!-- Header/Navigation -->
@@ -64,18 +84,21 @@
                 <div class="logo">
                     <img src="images/galaxy-logo.png" alt="Galaxy Training Center Logo">
                 </div>
-                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                    <span class="menu-icon"></span>
-                </button>
-                <nav class="nav" role="navigation" aria-label="Main navigation">
+                <nav class="nav" role="navigation" aria-label="Main navigation" style="padding-left: 450px;">
                     <ul class="nav-list">
                         <li><a href="https://new.galaxy.ps/#/home" class="nav-link" aria-current="page">Home</a></li>
-                        <li><a href="#benefits" class="nav-link">Why Galaxy</a></li>
                         <li><a href="#courses" class="nav-link">Courses</a></li>
+                        <li><a href="#benefits" class="nav-link">Why Galaxy</a></li>
                         <li><a href="#about" class="nav-link">Benefits</a></li>
                         <li><a href="#contact" class="nav-link btn btn-primary">Contact Us</a></li>
                     </ul>
                 </nav>
+                <!-- Updated language switcher with active class -->
+                <div id="language-switcher">
+                    <button onclick="switchLanguage('en')" class="lang-btn active">EN</button>
+                    <span class="lang-separator">|</span>
+                    <button onclick="switchLanguage('ar')" class="lang-btn">عربي</button>
+                </div>
             </div>
         </div>
     </header>
@@ -108,7 +131,740 @@
         </div>
         <div class="hero-pattern"></div>
     </section>
-
+    <!-- AI Career Paths Section -->
+    <section class="section career-paths" id="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="text-blue">EXPLORE YOUR AI</span>
+                    CAREER PATH
+                </h2>
+            </div>
+            
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="courseSearch" class="search-input" placeholder="Search courses...">
+                    <button class="search-clear" aria-label="Clear search">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="no-results">
+                <p>No courses found matching your search.</p>
+            </div>
+            
+            <div class="paths-categories">
+                <h3 class="category-title"><span class="text-blue">Essentials</span> Courses</h3>
+                <div class="paths-grid">
+                    <a href="course-details.html?id=2317" class="path-card" data-level="Beginner" data-duration="8" data-course-id="2317" data-ar-title="الذكاء الاصطناعي للجميع">
+                        <img src="images/Courses Cards/1.png" alt="Everyone" class="course-image">
+                        <span class="course-badge badge-popular">Most Popular</span>
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Beginner</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=28178" class="path-card" data-level="Beginner" data-duration="6" data-ar-title="الذكاء الاصطناعي الأساسي">
+                        <img src="images/Courses Cards/2.png" alt="Foundation" class="course-image">
+                        <span class="course-badge badge-new">New</span>
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>6 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Beginner</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=1067" class="path-card" data-ar-title="برمجة الأوامر 1">
+                        <img src="images/Courses Cards/3.png" alt="Prompt Level 1" class="course-image">
+                        <span class="course-badge badge-new">New</span>
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Beginner</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=14803" class="path-card" data-ar-title="برمجة الأوامر 2">
+                        <img src="images/Courses Cards/4.png" alt="Prompt Level 2" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>6 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Beginner</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=294" class="path-card" data-ar-title="الذكاء الاصطناعي للمدراء التنفيذيين">
+                        <img src="images/Courses Cards/5.png" alt="Executive" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Beginner</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="paths-categories">
+                <h3 class="category-title"><span class="text-blue">Design</span> Courses</h3>
+                <div class="paths-grid">
+                    <a href="course-details.html?id=1079" class="path-card" data-ar-title="الذكاء الاصطناعي للتصميم">
+                        <img src="images/Courses Cards/6.png" alt="Design" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>10 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=1081" class="path-card" data-ar-title="الذكاء الاصطناعي مصمم تجربة المستخدم">
+                        <img src="images/Courses Cards/7.png" alt="UX Designer" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="paths-categories">
+                <h3 class="category-title"><span class="text-blue">Specialized</span> Courses</h3>
+                <div class="paths-grid">
+                    <a href="course-details.html?id=2518" class="path-card" data-ar-title="الذكاء الاصطناعي الحكومة">
+                        <img src="images/Courses Cards/8.png" alt="Government" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>12 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=2520" class="path-card" data-ar-title="الذكاء الاصطناعي الرعاية الصحية">
+                        <img src="images/Courses Cards/9.png" alt="Healthcare" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>10 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=25429" class="path-card" data-ar-title="الذكاء الاصطناعي للمدير التنفيذي">
+                        <img src="images/Courses Cards/10.png" alt="Chief AI Officer" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>12 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=1091" class="path-card" data-ar-title="الذكاء الاصطناعي القانون">
+                        <img src="images/Courses Cards/11.png" alt="AI for Legal" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>10 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=1083" class="path-card" data-level="Beginner" data-duration="6" data-ar-title="التعلم والتطوير">
+                        <img src="images/Courses Cards/33.png" alt="AI+ Learning & Development" class="course-image">
+                        <span class="course-badge badge-new">New</span>
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>6 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Beginner</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=1077" class="path-card" data-level="Beginner" data-duration="6" data-ar-title="التعليم">
+                        <img src="images/Courses Cards/41.png" alt="AI+ Educator" class="course-image">
+                        <span class="course-badge badge-new">New</span>
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>6 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Beginner</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="paths-categories">
+                <h3 class="category-title"><span class="text-blue">Tech</span> Courses</h3>
+                <div class="paths-grid">
+                    <a href="course-details.html?id=1114" class="path-card" data-ar-title="الذكاء الاصطناعي الأمن السيبراني">
+                        <img src="images/Courses Cards/12.png" alt="Ethical Hacker" class="course-image">
+                        <span class="course-badge badge-popular">Most Popular</span>
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>12 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=14790" class="path-card" data-ar-title="الذكاء الاصطناعي الأمن المستوى 1">
+                        <img src="images/Courses Cards/13.png" alt="Security Level 1" class="course-image">
+                        <span class="course-badge badge-new">New</span>
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>10 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=14836" class="path-card" data-ar-title="الذكاء الاصطناعي الأمن المستوى 2">
+                        <img src="images/Courses Cards/14.png" alt="Security Level 2" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>12 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=15262" class="path-card" data-ar-title="الذكاء الاصطناعي الأمن المستوى 3">
+                        <img src="images/Courses Cards/15.png" alt="Security Level 3" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>10 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=1108" class="path-card" data-ar-title="الذكاء الاصطناعي البيانات">
+                        <img src="images/Courses Cards/16.png" alt="Data" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=1110" class="path-card" data-ar-title="الذكاء الاصطناعي المهندسين">
+                        <img src="images/Courses Cards/17.png" alt="Engineer" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>12 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=1117" class="path-card" data-ar-title="الذكاء الاصطناعي الحوسبة السحابية">
+                        <img src="images/Courses Cards/18.png" alt="Cloud" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>10 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=14798" class="path-card" data-ar-title="الذكاء الاصطناعي الشبكات">
+                        <img src="images/Courses Cards/19.png" alt="Network" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>12 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=14793" class="path-card" data-ar-title="الذكاء الاصطناعي الامتثال الأمني">
+                        <img src="images/Courses Cards/20.png" alt="Security Compliance" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>10 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=296" class="path-card" data-ar-title="الذكاء الاصطناعي المطورين">
+                        <img src="images/Courses Cards/21.png" alt="Developer" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=1123" class="path-card" data-ar-title="الذكاء الاصطناعي الروبوتات">
+                        <img src="images/Courses Cards/22.png" alt="Robotics" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=1119" class="path-card" data-ar-title="الذكاء الاصطناعي الهندسة المعمارية">
+                        <img src="images/Courses Cards/23.png" alt="Architect" class="course-image">
+                        <span class="course-badge badge-popular">Most Popular</span>
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>6 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=1125" class="path-card" data-ar-title="الذكاء الاصطناعي الحوسبة الكمية">
+                        <img src="images/Courses Cards/24.png" alt="Quantum" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>12 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="paths-categories">
+                <h3 class="category-title"><span class="text-blue">Business</span> Courses</h3>
+                <div class="paths-grid">
+                    <a href="course-details.html?id=1075" class="path-card" data-ar-title="الذكاء الاصطناعي لمديري المشاريع">
+                        <img src="images/Courses Cards/25.png" alt="Project Manager" class="course-image">
+                        <span class="course-badge badge-new">New</span>
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>10 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=1085" class="path-card" data-ar-title="الذكاء الاصطناعي لمديري المنتجات">
+                        <img src="images/Courses Cards/26.png" alt="Product Manager" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=1069" class="path-card" data-ar-title="الذكاء الاصطناعي للمبيعات">
+                        <img src="images/Courses Cards/28.png" alt="Sales" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>6 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=1087" class="path-card" data-ar-title="الذكاء الاصطناعي للموارد البشرية">
+                        <img src="images/Courses Cards/31.png" alt="Human Resources" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=1073" class="path-card" data-ar-title="الذكاء الاصطناعي لخدمة العملاء">
+                        <img src="images/Courses Cards/32.png" alt="Customer Service" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>10 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=1089" class="path-card" data-ar-title="الذكاء الاصطناعي للتمويل">
+                        <img src="images/Courses Cards/29.png" alt="Finance" class="course-image">
+                        <span class="course-badge badge-popular">Most Popular</span>
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=1071" class="path-card" data-ar-title="الذكاء الاصطناعي للتسويق">
+                        <img src="images/Courses Cards/27.png" alt="Marketing" class="course-image">
+                        <span class="course-badge badge-popular">Most Popular</span>
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=14800" class="path-card" data-ar-title="الذكاء الاصطناعي لسلسلة التوريد">
+                        <img src="images/Courses Cards/30.png" alt="Supply Chain" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=971" class="path-card" data-ar-title="الذكاء الاصطناعي للأخلاقيات">
+                        <img src="images/Courses Cards/40.png" alt="Ethics" class="course-image">
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="paths-categories">
+                <h3 class="category-title"><span class="text-blue">Blockchain & Bitcoin</span> Courses</h3>
+                <div class="paths-grid">
+                    <a href="course-details.html?id=1736" class="path-card" data-level="Beginner" data-duration="6" data-ar-title="البيتكوين للمديرين التنفيذيين">
+                        <img src="images/Courses Cards/34.png" alt="Bitcoin+ Executive" class="course-image">
+                        <span class="course-badge badge-new">New</span>
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>6 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Beginner</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=2402" class="path-card" data-level="Beginner" data-duration="6" data-ar-title="البيتكوين للجميع">
+                        <img src="images/Courses Cards/35.png" alt="Bitcoin+ Everyone" class="course-image">
+                        <span class="course-badge badge-new">New</span>
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>6 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Beginner</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=335" class="path-card" data-level="Beginner" data-duration="8" data-ar-title="البيتكوين للمطورين">
+                        <img src="images/Courses Cards/37.png" alt="Bitcoin+ Developer" class="course-image">
+                        <span class="course-badge badge-new">New</span>
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Beginner</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=1127" class="path-card" data-level="Beginner" data-duration="8" data-ar-title="البيتكوين للأمن">
+                        <img src="images/Courses Cards/36.png" alt="Bitcoin+ Security" class="course-image">
+                        <span class="course-badge badge-new">New</span>
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Beginner</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=1477" class="path-card" data-level="Beginner" data-duration="6" data-ar-title="البلوكتشين للمطورين">
+                        <img src="images/Courses Cards/38.png" alt="Blockchain+ Developer" class="course-image">
+                        <span class="course-badge badge-new">New</span>
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>6 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Beginner</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="course-details.html?id=298" class="path-card" data-level="Beginner" data-duration="6" data-ar-title="البلوكتشين للمديرين التنفيذيين">
+                        <img src="images/Courses Cards/39.png" alt="Blockchain+ Executive" class="course-image">
+                        <span class="course-badge badge-new">New</span>
+                        <div class="course-details">
+                            <div class="course-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>6 Weeks</span>
+                            </div>
+                            <div class="course-level">
+                                <i class="fas fa-signal"></i>
+                                <span>Beginner</span>
+                            </div>
+                        </div>
+                        <div class="course-link">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Why Choose Galaxy Section -->
     <section class="section why-galaxy" id="benefits">
         <div class="container">
@@ -307,533 +1063,6 @@
             </div>
     </section>
 
-    <!-- AI Career Paths Section -->
-    <section class="section career-paths" id="courses">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="text-blue">EXPLORE YOUR AI</span>
-                    CAREER PATH
-                </h2>
-            </div>
-            
-            <div class="search-container">
-                <div class="search-wrapper">
-                    <i class="fas fa-search search-icon"></i>
-                    <input type="text" id="courseSearch" class="search-input" placeholder="Search courses...">
-                    <button class="search-clear" aria-label="Clear search">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <div class="no-results">
-                <p>No courses found matching your search.</p>
-            </div>
-            
-            <div class="paths-categories">
-                <h3 class="category-title"><span class="text-blue">Essentials</span> Courses</h3>
-                <div class="paths-grid">
-                    <a href="course-details.html?id=2317" class="path-card" data-level="Beginner" data-duration="8" data-course-id="2317">
-                        <img src="images/Courses Cards/1.png" alt="Everyone" class="course-image">
-                        <span class="course-badge badge-popular">Most Popular</span>
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>8 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Beginner</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=28178" class="path-card" data-level="Beginner" data-duration="6">
-                        <img src="images/Courses Cards/2.png" alt="Foundation" class="course-image">
-                        <span class="course-badge badge-new">New</span>
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>6 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Beginner</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=1067" class="path-card">
-                        <img src="images/Courses Cards/3.png" alt="Prompt Level 1" class="course-image">
-                        <span class="course-badge badge-new">New</span>
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>8 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Beginner</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=14803" class="path-card">
-                        <img src="images/Courses Cards/4.png" alt="Prompt Level 2" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>6 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Beginner</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=1069" class="path-card">
-                        <img src="images/Courses Cards/5.png" alt="Executive" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>8 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Beginner</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="paths-categories">
-                <h3 class="category-title"><span class="text-blue">Design</span> Courses</h3>
-                <div class="paths-grid">
-                    <a href="course-details.html?id=1079" class="path-card">
-                        <img src="images/Courses Cards/6.png" alt="Design" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>10 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Intermediate</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=1081" class="path-card">
-                        <img src="images/Courses Cards/7.png" alt="UX Designer" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>8 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Intermediate</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="paths-categories">
-                <h3 class="category-title"><span class="text-blue">Specialized</span> Courses</h3>
-                <div class="paths-grid">
-                    <a href="course-details.html?id=2518" class="path-card">
-                        <img src="images/Courses Cards/8.png" alt="Government" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>12 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Advanced</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=2520" class="path-card">
-                        <img src="images/Courses Cards/9.png" alt="Healthcare" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>10 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Advanced</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=25429" class="path-card">
-                        <img src="images/Courses Cards/10.png" alt="Chief AI Officer" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>12 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Advanced</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=1091" class="path-card">
-                        <img src="images/Courses Cards/11.png" alt="AI for Legal" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>10 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Advanced</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="paths-categories">
-                <h3 class="category-title"><span class="text-blue">Tech</span> Courses</h3>
-                <div class="paths-grid">
-                    <a href="course-details.html?id=1114" class="path-card">
-                        <img src="images/Courses Cards/12.png" alt="Ethical Hacker" class="course-image">
-                        <span class="course-badge badge-popular">Most Popular</span>
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>12 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Advanced</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=14790" class="path-card">
-                        <img src="images/Courses Cards/13.png" alt="Security Level 1" class="course-image">
-                        <span class="course-badge badge-new">New</span>
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>10 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Advanced</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=14836" class="path-card">
-                        <img src="images/Courses Cards/14.png" alt="Security Level 2" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>12 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Advanced</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=15262" class="path-card">
-                        <img src="images/Courses Cards/15.png" alt="Security Level 3" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>10 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Advanced</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=1108" class="path-card">
-                        <img src="images/Courses Cards/16.png" alt="Data" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>8 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Advanced</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=1110" class="path-card">
-                        <img src="images/Courses Cards/17.png" alt="Engineer" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>12 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Advanced</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=1117" class="path-card">
-                        <img src="images/Courses Cards/18.png" alt="Cloud" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>10 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Advanced</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=14798" class="path-card">
-                        <img src="images/Courses Cards/19.png" alt="Network" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>12 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Advanced</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=14793" class="path-card">
-                        <img src="images/Courses Cards/20.png" alt="Security Compliance" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>10 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Advanced</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=296" class="path-card">
-                        <img src="images/Courses Cards/21.png" alt="Developer" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>8 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Advanced</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=1123" class="path-card">
-                        <img src="images/Courses Cards/22.png" alt="Robotics" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>8 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Advanced</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=1119" class="path-card">
-                        <img src="images/Courses Cards/23.png" alt="Architect" class="course-image">
-                        <span class="course-badge badge-popular">Most Popular</span>
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>6 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Advanced</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=1125" class="path-card">
-                        <img src="images/Courses Cards/24.png" alt="Quantum" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>12 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Advanced</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="paths-categories">
-                <h3 class="category-title"><span class="text-blue">Business</span> Courses</h3>
-                <div class="paths-grid">
-                    <a href="course-details.html?id=1075" class="path-card">
-                        <img src="images/Courses Cards/25.png" alt="Project Manager" class="course-image">
-                        <span class="course-badge badge-new">New</span>
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>10 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Intermediate</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=1085" class="path-card">
-                        <img src="images/Courses Cards/26.png" alt="Product Manager" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>8 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Intermediate</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=1069" class="path-card">
-                        <img src="images/Courses Cards/28.png" alt="Sales" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>6 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Intermediate</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=1087" class="path-card">
-                        <img src="images/Courses Cards/31.png" alt="Human Resources" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>8 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Intermediate</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                    <a href="course-details.html?id=1073" class="path-card">
-                        <img src="images/Courses Cards/32.png" alt="Customer Service" class="course-image">
-                        <div class="course-details">
-                            <div class="course-duration">
-                                <i class="fas fa-clock"></i>
-                                <span>10 Weeks</span>
-                            </div>
-                            <div class="course-level">
-                                <i class="fas fa-signal"></i>
-                                <span>Intermediate</span>
-                            </div>
-                        </div>
-                        <div class="course-link">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Learning Experience Section -->
     <section class="section learning-experience" id="experience">
         <div class="container">
@@ -892,7 +1121,7 @@
             <div class="eligibility-content">
                 <div class="eligibility-group">
                     <h3 class="eligibility-subtitle">
-                        <i class="fas fa-check-circle text-blue"></i> YOU SHOULD JOIN IF:
+                        <i class="fas fa-check-circle text-blue"></i> YOU SHOULD JOIN IF YOU WANT TO:
                     </h3>
                     <div class="eligibility-grid">
                         <div class="feature-card">
@@ -970,7 +1199,7 @@
             </div>
             
             <div class="contact-form-container">
-                <form id="contactForm" class="contact-form">
+                <form id="contactForm" class="contact-form" action="process-form.php" method="POST">
                     <div class="form-group">
                         <label for="name" class="form-label">Full Name</label>
                         <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name" required>
@@ -987,6 +1216,11 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" id="city" name="city" class="form-control" placeholder="Enter your city" required>
+                    </div>
+
+                    <div class="form-group">
                         <label for="category" class="form-label">Course Category</label>
                         <select id="category" name="category" class="form-control" required>
                             <option value="">Select a category</option>
@@ -995,6 +1229,7 @@
                             <option value="specialized">Specialized Courses</option>
                             <option value="tech">Tech Courses</option>
                             <option value="business">Business Courses</option>
+                            <option value="blockchain">Blockchain & Bitcoin Courses</option>
                         </select>
                     </div>
 
@@ -1008,7 +1243,7 @@
                     
                     <div class="form-group">
                         <label for="message" class="form-label">Message</label>
-                        <textarea id="message" name="message" class="form-control" placeholder="Tell us about your interests or questions" required></textarea>
+                        <textarea id="message" name="message" class="form-control" placeholder="Tell us about your interests or questions"></textarea>
                     </div>
                     
                     <div class="form-group">
@@ -1028,7 +1263,7 @@
                 </div>
                 
                 <div class="footer-contact">
-                    <p><a href="tel:1700666000"><i class="fas fa-phone"></i> 1700 666 000</a></p>
+                    <p><a href="tel:1700666000" data-mobile-number="1700666000"><i class="fas fa-phone"></i> <span class="phone-number">1700 666 000</span></a></p>
                     <p><a href="mailto:ai@galaxy.ps"><i class="fas fa-envelope"></i> ai@galaxy.ps</a></p>
                     <p><a href="https://new.galaxy.ps/#/home"><i class="fas fa-globe"></i> www.galaxy.ps</a></p>
                 </div>
@@ -1186,5 +1421,659 @@
 
     <!-- Example: Display AI+ Foundation certificate
     displayCertificateOnPage(28178); -->
+
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        const submitButton = this.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.innerHTML;
+        submitButton.innerHTML = 'Sending...';
+        submitButton.disabled = true;
+        
+        // Get form data
+        const formData = new FormData(this);
+        
+        // Send form data
+        fetch('process-form.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                // Show success message
+                alert(data.message);
+                // Reset form
+                this.reset();
+            } else {
+                // Show error message
+                alert(data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error submitting the form. Please try again later.');
+        })
+        .finally(() => {
+            // Reset button state
+            submitButton.innerHTML = originalButtonText;
+            submitButton.disabled = false;
+        });
+    });
+
+    // Populate course dropdown based on category selection
+    document.getElementById('category').addEventListener('change', function() {
+        const courseSelect = document.getElementById('course');
+        const category = this.value;
+        
+        // Clear current options
+        courseSelect.innerHTML = '<option value="">Select a course</option>';
+        
+        // Map of category names to their display names
+        const categoryMap = {
+            'essentials': 'Essentials',
+            'design': 'Design',
+            'specialized': 'Specialized',
+            'tech': 'Tech',
+            'business': 'Business',
+            'blockchain': 'Blockchain & Bitcoin'
+        };
+        
+        // Get all course cards for the selected category
+        const categoryTitle = categoryMap[category];
+        const courseCards = document.querySelectorAll(`.paths-categories:has(h3:contains('${categoryTitle}')) .path-card`);
+        
+        courseCards.forEach(card => {
+            const courseName = card.querySelector('.course-image').alt;
+            const courseId = card.getAttribute('href').split('=')[1];
+            
+            const option = document.createElement('option');
+            option.value = courseId;
+            option.textContent = courseName;
+            courseSelect.appendChild(option);
+        });
+    });
+
+    // Add this after the existing script code
+
+    // Search functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('courseSearch');
+        const courseCards = document.querySelectorAll('.path-card');
+        const noResults = document.querySelector('.no-results');
+        const categories = document.querySelectorAll('.paths-categories');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            let hasResults = false;
+
+            // Hide all categories initially
+            categories.forEach(category => {
+                category.style.display = 'none';
+            });
+
+            // Search through all course cards
+            courseCards.forEach(card => {
+                const courseName = card.querySelector('.course-image').alt.toLowerCase();
+                const arabicTitle = card.getAttribute('data-ar-title')?.toLowerCase() || '';
+                const courseCategory = card.closest('.paths-categories');
+                
+                if (courseName.includes(searchTerm) || arabicTitle.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    courseCategory.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide no results message
+            if (!hasResults && searchTerm !== '') {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+
+            // If search is empty, show all categories and cards
+            if (searchTerm === '') {
+                categories.forEach(category => {
+                    category.style.display = 'block';
+                });
+                courseCards.forEach(card => {
+                    card.style.display = 'block';
+                });
+                noResults.style.display = 'none';
+            }
+        });
+
+        // Clear search functionality
+        const clearButton = document.querySelector('.search-clear');
+        if (clearButton) {
+            clearButton.addEventListener('click', function() {
+                searchInput.value = '';
+                categories.forEach(category => {
+                    category.style.display = 'block';
+                });
+                courseCards.forEach(card => {
+                    card.style.display = 'block';
+                });
+                noResults.style.display = 'none';
+            });
+        }
+    });
+    </script>
+
+    <!-- Update language switcher script to include AI Career Paths section translations -->
+    <script>
+    function translateNavItems(lang) {
+        const navLinks = document.querySelectorAll('.nav-list .nav-link');
+        if (lang === 'ar') {
+            navLinks[0].textContent = 'الرئيسية';
+            navLinks[1].textContent = 'لماذا جالاكسي';
+            navLinks[2].textContent = 'الدورات';
+            navLinks[3].textContent = 'الفوائد';
+            navLinks[4].textContent = 'اتصل بنا';
+        } else {
+            navLinks[0].textContent = 'Home';
+            navLinks[1].textContent = 'Why Galaxy';
+            navLinks[2].textContent = 'Courses';
+            navLinks[3].textContent = 'Benefits';
+            navLinks[4].textContent = 'Contact Us';
+        }
+    }
+
+    function translateHeroSection(lang) {
+        const titleTexts = document.querySelectorAll('.title-text');
+        const heroText = document.querySelector('.hero-text');
+        const heroCta = document.querySelector('.hero-cta .btn');
+
+        if (lang === 'ar') {
+            // First title text
+            titleTexts[0].innerHTML = '<span class="text-blue" style="font-size: 4.25rem;"><strong>هل أنت مستعد لبدء</span><br>رحلة الذكاء الاصطناعي؟</strong>';
+            // Second title text
+            titleTexts[1].innerHTML = '<span class="text-blue" style="font-size: 4.25rem;"><strong>الأول من نوعــــــــه</span><br>في فلسطيــــــــــــــــن</strong>';
+            // Hero text
+            heroText.innerHTML = 'تواصل معنا وانضم إلى آلاف المهنيين الذين يستخدمون الذكاء الاصطناعي <strong>للقيادة بذكاء أكبر، والعمل بشكل أسرع، والبقاء في المقدمة.</strong>';
+            // CTA button
+            heroCta.textContent = 'تواصل معنا';
+        } else {
+            // First title text
+            titleTexts[0].innerHTML = '<span class="text-blue" style="font-size: 4.25rem;"><strong>READY TO START</span><br>YOUR AI JOURNEY?</strong>';
+            // Second title text
+            titleTexts[1].innerHTML = '<span class="text-blue" style="font-size: 4.25rem;"><strong>FIRST OF ITS KIND</span><br>IN PALESTINE</strong>';
+            // Hero text
+            heroText.innerHTML = 'Contact us and join thousands of professionals who are already using AI to <strong>lead smarter, work faster, and stay ahead.</strong>';
+            // CTA button
+            heroCta.textContent = 'Contact Us';
+        }
+    }
+
+    function translateCareerPathsSection(lang) {
+        const sectionTitle = document.querySelector('#courses .section-title');
+        const searchInput = document.querySelector('#courseSearch');
+        const noResults = document.querySelector('.no-results p');
+        const categoryTitles = document.querySelectorAll('.category-title');
+        const courseBadges = document.querySelectorAll('.course-badge');
+        const courseDurations = document.querySelectorAll('.course-duration span');
+        const courseLevels = document.querySelectorAll('.course-level span');
+
+        if (lang === 'ar') {
+            // Section title
+            sectionTitle.innerHTML = '<span class="text-blue">اكتشف مسارك المهني</span><br>في الذكاء الاصطناعي';
+            
+            // Search placeholder
+            searchInput.placeholder = 'ابحث عن الدورات...';
+            
+            // No results message
+            noResults.textContent = 'لم يتم العثور على دورات تطابق بحثك.';
+            
+            // Category titles - Blue tag first in Arabic
+            categoryTitles[0].innerHTML = '<span class="text-blue">الدورات</span> الأساسية';
+            categoryTitles[1].innerHTML = '<span class="text-blue">دورات</span> التصميم';
+            categoryTitles[2].innerHTML = '<span class="text-blue">الدورات</span> المتخصصة';
+            categoryTitles[3].innerHTML = '<span class="text-blue">دورات</span> التكنولوجيا';
+            categoryTitles[4].innerHTML = '<span class="text-blue">دورات</span> الأعمال';
+            categoryTitles[5].innerHTML = '<span class="text-blue">دورات</span> البلوكتشين والبيتكوين';
+
+            // Translate badges
+            courseBadges.forEach(badge => {
+                if (badge.classList.contains('badge-popular')) {
+                    badge.textContent = 'الأكثر شيوعاً';
+                } else if (badge.classList.contains('badge-new')) {
+                    badge.textContent = 'جديد';
+                }
+            });
+
+            // Translate durations
+            courseDurations.forEach(duration => {
+                const weeks = duration.textContent.split(' ')[0];
+                duration.textContent = `${weeks} أسابيع`;
+            });
+
+            // Translate levels
+            courseLevels.forEach(level => {
+                if (level.textContent === 'Beginner') {
+                    level.textContent = 'مبتدئ';
+                } else if (level.textContent === 'Intermediate') {
+                    level.textContent = 'متوسط';
+                } else if (level.textContent === 'Advanced') {
+                    level.textContent = 'متقدم';
+                }
+            });
+        } else {
+            // Section title
+            sectionTitle.innerHTML = '<span class="text-blue">EXPLORE YOUR AI</span><br>CAREER PATH';
+            
+            // Search placeholder
+            searchInput.placeholder = 'Search courses...';
+            
+            // No results message
+            noResults.textContent = 'No courses found matching your search.';
+            
+            // Category titles - Blue tag first in English
+            categoryTitles[0].innerHTML = '<span class="text-blue">Essentials</span> Courses';
+            categoryTitles[1].innerHTML = '<span class="text-blue">Design</span> Courses';
+            categoryTitles[2].innerHTML = '<span class="text-blue">Specialized</span> Courses';
+            categoryTitles[3].innerHTML = '<span class="text-blue">Tech</span> Courses';
+            categoryTitles[4].innerHTML = '<span class="text-blue">Business</span> Courses';
+            categoryTitles[5].innerHTML = '<span class="text-blue">Blockchain & Bitcoin</span> Courses';
+
+            // Reset badges
+            courseBadges.forEach(badge => {
+                if (badge.classList.contains('badge-popular')) {
+                    badge.textContent = 'Most Popular';
+                } else if (badge.classList.contains('badge-new')) {
+                    badge.textContent = 'New';
+                }
+            });
+
+            // Reset durations
+            courseDurations.forEach(duration => {
+                const weeks = duration.textContent.split(' ')[0];
+                duration.textContent = `${weeks} Weeks`;
+            });
+
+            // Reset levels
+            courseLevels.forEach(level => {
+                if (level.textContent === 'مبتدئ') {
+                    level.textContent = 'Beginner';
+                } else if (level.textContent === 'متوسط') {
+                    level.textContent = 'Intermediate';
+                } else if (level.textContent === 'متقدم') {
+                    level.textContent = 'Advanced';
+                }
+            });
+        }
+    }
+
+    function translateWhyGalaxySection(lang) {
+        const sectionTitle = document.querySelector('#benefits .section-title');
+        const benefitTitles = document.querySelectorAll('.benefit-title');
+        const benefitDescriptions = document.querySelectorAll('.benefit-description');
+
+        if (lang === 'ar') {
+            // Section title
+            sectionTitle.innerHTML = '<span class="text-blue">لماذا تختار جالاكسي</span><br> لدورات الذكاء الاصطناعي؟';
+            
+            // Benefit titles and descriptions
+            benefitTitles[0].textContent = 'الذكاء الاصطناعي لكل مهنة';
+            benefitDescriptions[0].textContent = 'سواء كنت في مجال الأعمال، أو الرعاية الصحية، أو التعليم، أو الهندسة — تم تصميم برامجنا لتلبية متطلبات صناعتك.';
+            
+            benefitTitles[1].textContent = 'تعلم محدث';
+            benefitDescriptions[1].textContent = 'نبقيك في المقدمة بأحدث تقنيات الذكاء الاصطناعي. من نماذج اللغة الكبيرة ومولدات الصور والفيديو إلى وكلاء الذكاء الاصطناعي.';
+            
+            benefitTitles[2].textContent = 'شهادات معترف بها عالمياً';
+            benefitDescriptions[2].textContent = 'تتضمن جميع الدورات شهادة من خلال شريكنا الرسمي AI Certs™، المعترف بها عالمياً لشهادات معايير الصناعة في الذكاء الاصطناعي.';
+            
+            benefitTitles[3].textContent = 'مدربون خبراء';
+            benefitDescriptions[3].textContent = 'مدربونا المعتمدون ليسوا مجرد معلمين، بل هم محترفون نشطون ومستخدمون للذكاء الاصطناعي يجلبون خبرة الحياة الواقعية مباشرة إلى عقلك.';
+        } else {
+            // Section title
+            sectionTitle.innerHTML = '<span class="text-blue">WHY CHOOSE GALAXY</span><br>TRAINING CENTER FOR AI COURSES?';
+            
+            // Benefit titles and descriptions
+            benefitTitles[0].textContent = 'AI for Every Career';
+            benefitDescriptions[0].textContent = 'Whether you\'re in business, healthcare, education, or engineering — our programs are designed to meet the demands of your industry.';
+            
+            benefitTitles[1].textContent = 'Up to Date Learning';
+            benefitDescriptions[1].textContent = 'We keep you ahead with the latest AI technologies. From LLMs and image/video generators to AI Agents.';
+            
+            benefitTitles[2].textContent = 'Globally Recognized Credentials';
+            benefitDescriptions[2].textContent = 'All courses include certification through our official partner AI Certs™, recognized globally for industry-standard credentials in artificial intelligence.';
+            
+            benefitTitles[3].textContent = 'Expert Instructors';
+            benefitDescriptions[3].textContent = 'Our certified trainers aren\'t just educators, they\'re active professionals and AI users who bring real life experience straight into your mind.';
+        }
+    }
+
+    function translateAIStatsSection(lang) {
+        const sectionTitle = document.querySelector('#stats .section-title');
+        const statDescriptions = document.querySelectorAll('.stat-description');
+        const statSources = document.querySelectorAll('.stat-source');
+
+        if (lang === 'ar') {
+            // Section title
+            sectionTitle.innerHTML = '<span class="text-blue">ثورة الذكاء</span><br> الاصطناعي بالأرقام';
+            
+            // Stat descriptions
+            statDescriptions[0].textContent = 'من الشركات تعتمد الذكاء الاصطناعي خلال الـ 12 شهراً القادمة';
+            statDescriptions[1].textContent = 'من الشركات تستثمر في تطوير مهارات الذكاء الاصطناعي';
+            statDescriptions[2].textContent = 'مليار دولار يمكن أن يضيفها الذكاء الاصطناعي لإنتاجية الأعمال العالمية';
+            statDescriptions[3].textContent = 'أسرع إنجاز المهام باستخدام أدوات الذكاء الاصطناعي، مثل نماذج اللغة الكبيرة';
+            
+            // Stat sources
+            statSources[0].textContent = 'مؤشر اعتماد الذكاء الاصطناعي العالمي - IBM';
+            statSources[1].textContent = 'PwC';
+            statSources[2].textContent = 'McKinsey';
+            statSources[3].textContent = 'مختبر ستانفورد للاقتصاد الرقمي';
+        } else {
+            // Section title
+            sectionTitle.innerHTML = '<span class="text-blue">THE AI REVOLUTION</span><br>IN NUMBERS';
+            
+            // Stat descriptions
+            statDescriptions[0].textContent = 'Of businesses are adopting AI within next 12 months';
+            statDescriptions[1].textContent = 'Of companies are investing in AI upskilling';
+            statDescriptions[2].textContent = 'AI could add to global business productivity';
+            statDescriptions[3].textContent = 'Faster task completion using AI tools, like LLMs';
+            
+            // Stat sources
+            statSources[0].textContent = 'IBM Global AI Adoption Index';
+            statSources[1].textContent = 'PwC';
+            statSources[2].textContent = 'McKinsey';
+            statSources[3].textContent = 'Stanford Digital Economy Lab';
+        }
+    }
+
+    function translateInclusionsSection(lang) {
+        const sectionTitle = document.querySelector('#inclusions .section-title');
+        const inclusionTitles = document.querySelectorAll('.inclusion-title');
+        const inclusionDescriptions = document.querySelectorAll('.inclusion-description');
+        const ctaButton = document.querySelector('.inclusion-item.cta-button .inclusion-title');
+        const ctaDescription = document.querySelector('.inclusion-item.cta-button .inclusion-description');
+
+        if (lang === 'ar') {
+            // Section title
+            sectionTitle.innerHTML = '<span class="text-blue">ماذا تتضمّن</span> شهادتك  ';
+            
+            // Inclusion titles and descriptions
+            inclusionTitles[0].textContent = 'دورة إلكترونية';
+            inclusionDescriptions[0].textContent = 'مواد تعليمية رقمية تفاعلية وسهلة المتابعة.';
+            
+            inclusionTitles[1].textContent = 'خريطة الشهادة';
+            inclusionDescriptions[1].textContent = 'خريطة طريق واضحة لما يغطيه الامتحان وكيفية التحضير له.';
+            
+            inclusionTitles[2].textContent = 'منهج تفصيلي للدورة';
+            inclusionDescriptions[2].textContent = 'تحليل كامل للمواضيع والأدوات ونتائج التعلم.';
+            
+            inclusionTitles[3].textContent = 'الأدوات ذات الصلة';
+            inclusionDescriptions[3].textContent = 'الوصول والتوجيه لاستخدام أدوات الذكاء الاصطناعي المشمولة في الدورة.';
+            
+            inclusionTitles[4].textContent = 'فيديوهات ملخصة';
+            inclusionDescriptions[4].textContent = 'ملخص سريع ومركز لكل قسم لتعزيز التعلم.';
+            
+            inclusionTitles[5].textContent = 'امتحان الشهادة';
+            inclusionDescriptions[5].textContent = 'امتحان معترف به دولياً يتحقق من مهاراتك.';
+            
+            inclusionTitles[6].textContent = 'موارد الدورة';
+            inclusionDescriptions[6].textContent = 'قراءات إضافية وقوالب وتنزيلات عملية.';
+            
+            // CTA button
+            ctaButton.textContent = 'تواصل معنا';
+            ctaDescription.textContent = 'ابدأ رحلة الذكاء الاصطناعي اليوم';
+        } else {
+            // Section title
+            sectionTitle.innerHTML = '<span class="text-blue">WHAT IS INCLUDED</span> IN<br>YOUR AI CERTIFICATION PACKAGE';
+            
+            // Inclusion titles and descriptions
+            inclusionTitles[0].textContent = 'E-Course';
+            inclusionDescriptions[0].textContent = 'Interactive, easy-to-follow digital course materials.';
+            
+            inclusionTitles[1].textContent = 'Certification Blueprint';
+            inclusionDescriptions[1].textContent = 'Clear roadmap on what\'s covered in the exam and how to prepare.';
+            
+            inclusionTitles[2].textContent = 'Detailed Course Curriculum';
+            inclusionDescriptions[2].textContent = 'Full breakdown of topics, tools, and learning outcomes.';
+            
+            inclusionTitles[3].textContent = 'Related Tools';
+            inclusionDescriptions[3].textContent = 'Access and guidance on using AI tools covered in the course.';
+            
+            inclusionTitles[4].textContent = 'Summary Videos';
+            inclusionDescriptions[4].textContent = 'Quick, focused recap for each section to reinforce learning.';
+            
+            inclusionTitles[5].textContent = 'Certification Exam';
+            inclusionDescriptions[5].textContent = 'An internationally recognized exam that validates your skills.';
+            
+            inclusionTitles[6].textContent = 'Course Resources';
+            inclusionDescriptions[6].textContent = 'Additional readings, templates, and practical downloads.';
+            
+            // CTA button
+            ctaButton.textContent = 'Get in touch';
+            ctaDescription.textContent = 'Start your AI journey today';
+        }
+    }
+
+    function translateLearningExperienceSection(lang) {
+        const sectionTitle = document.querySelector('#experience .section-title');
+        const stepTitles = document.querySelectorAll('.step-title');
+        const stepDescriptions = document.querySelectorAll('.step-description');
+
+        if (lang === 'ar') {
+            // Section title
+            sectionTitle.innerHTML = '<span class="text-blue">تجربة التعلم</span> مع جالاكسي';
+            
+            // Step titles and descriptions
+            stepTitles[0].textContent = 'صيغ تعليمية مرنة';
+            stepDescriptions[0].textContent = 'اختر بين التعلم عبر الإنترنت، أو حضورياً، أو دون اتصال، أو مختلط، أو حسب الطلب للشركات.';
+            
+            stepTitles[1].textContent = 'مشاريع عملية';
+            stepDescriptions[1].textContent = 'طبق مهاراتك من خلال حالات استخدام واقعية.';
+            
+            stepTitles[2].textContent = 'تعلم باستخدام الأدوات التي ستستخدمها';
+            stepDescriptions[2].textContent = 'احصل على خبرة عملية مع الذكاء الاصطناعي، وChatGPT، وGemini، وClaude AI، والمزيد.';
+            
+            stepTitles[3].textContent = 'شهادة عند الإنجاز';
+            stepDescriptions[3].textContent = 'احصل على شهادة معترف بها عالمياً من AI Certs في نهاية دورتك.';
+        } else {
+            // Section title
+            sectionTitle.innerHTML = '<span class="text-blue">YOUR LEARNING EXPERIENCE</span> WITH GALAXY';
+            
+            // Step titles and descriptions
+            stepTitles[0].textContent = 'Flexible Learning Formats';
+            stepDescriptions[0].textContent = 'Choose between online, in-person, offline, hybrid, or corporate on-demand.';
+            
+            stepTitles[1].textContent = 'Hands-On Projects';
+            stepDescriptions[1].textContent = 'Apply your skills through real-world use cases.';
+            
+            stepTitles[2].textContent = 'Learn with the Tools You\'ll Use';
+            stepDescriptions[2].textContent = 'Get hands-on with AI, ChatGPT, Gemini, Claude AI, and more.';
+            
+            stepTitles[3].textContent = 'Certification Upon Completion';
+            stepDescriptions[3].textContent = 'Earn your AI Certs globally-recognized certification at the end of your course.';
+        }
+    }
+
+    function translateEligibilitySection(lang) {
+        const sectionTitle = document.querySelector('#about .section-title');
+        const eligibilitySubtitles = document.querySelectorAll('.eligibility-subtitle');
+        const featureTitles = document.querySelectorAll('.feature-title');
+
+        if (lang === 'ar') {
+            // Section title
+            sectionTitle.innerHTML = '<span class="text-blue">هل هذه الدورة</span><br>مناسبة لك؟';
+            
+            // Eligibility subtitles - Right-aligned with icons on the right
+            eligibilitySubtitles[0].innerHTML = '<i class="fas fa-check-circle text-blue"></i> يجب أن تنضم إذا كنت ترغب في';
+            eligibilitySubtitles[1].innerHTML = '<i class="fas fa-times-circle text-blue"></i> لا تحتاج أن تكون';
+            
+            // Add RTL class for Arabic
+            eligibilitySubtitles[0].classList.add('rtl');
+            eligibilitySubtitles[1].classList.add('rtl');
+            
+            // Feature titles - You Should Join If
+            featureTitles[0].textContent = 'مواكبة مجال عملك';
+            featureTitles[1].textContent = 'استخدام الذكاء الاصطناعي في العمل';
+            featureTitles[2].textContent = 'اتخاذ قرارات أسرع';
+            featureTitles[3].textContent = 'تحسن أداء فريقك';
+            featureTitles[4].textContent = 'شهادة معترف بها عالمياً';
+            
+            // Feature titles - You Don't Need To Be
+            featureTitles[5].textContent = 'من خلفية تقنية';
+            featureTitles[6].textContent = 'مبرمجاً أو مطوراً';
+            featureTitles[7].textContent = 'معتاداً على استخدام أدوات الذكاء الاصطناعي';
+        } else {
+            // Section title
+            sectionTitle.innerHTML = '<span class="text-blue">IS THIS COURSE</span><br>RIGHT FOR YOU?';
+            
+            // Eligibility subtitles - Left-aligned with icons on the left
+            eligibilitySubtitles[0].innerHTML = '<i class="fas fa-check-circle text-blue"></i> YOU SHOULD JOIN IF:';
+            eligibilitySubtitles[1].innerHTML = '<i class="fas fa-times-circle text-blue"></i> YOU DON\'T NEED TO BE:';
+            
+            // Remove RTL class for English
+            eligibilitySubtitles[0].classList.remove('rtl');
+            eligibilitySubtitles[1].classList.remove('rtl');
+            
+            // Feature titles - You Should Join If
+            featureTitles[0].textContent = 'Stay relevant to your field';
+            featureTitles[1].textContent = 'Use AI tools correctly at work';
+            featureTitles[2].textContent = 'Make faster decisions';
+            featureTitles[3].textContent = 'Improve your team performance';
+            featureTitles[4].textContent = 'Globally recognized certification';
+            
+            // Feature titles - You Don't Need To Be
+            featureTitles[5].textContent = 'From a technical background';
+            featureTitles[6].textContent = 'A programmer or a coder';
+            featureTitles[7].textContent = 'Already familiar with AI tools';
+        }
+    }
+
+    function translateContactSection(lang) {
+        const sectionTitle = document.querySelector('#contact .section-title');
+        const sectionSubtitle = document.querySelector('#contact .section-subtitle');
+        const formLabels = document.querySelectorAll('#contactForm .form-label');
+        const formInputs = document.querySelectorAll('#contactForm .form-control');
+        const submitButton = document.querySelector('#contactForm button[type="submit"]');
+        const categoryOptions = document.querySelectorAll('#category option');
+        const courseSelect = document.querySelector('#course');
+
+        if (lang === 'ar') {
+            // Section title and subtitle
+            sectionTitle.textContent = 'تواصل معنا';
+            sectionSubtitle.textContent = 'هل أنت مستعد لبدء رحلة الذكاء الاصطناعي؟ املأ النموذج أدناه وسنعاود الاتصال بك قريباً.';
+            
+            // Form labels
+            formLabels[0].textContent = 'الاسم الكامل';
+            formLabels[1].textContent = 'البريد الإلكتروني';
+            formLabels[2].textContent = 'رقم الهاتف';
+            formLabels[3].textContent = 'المدينة';
+            formLabels[4].textContent = 'فئة الدورة';
+            formLabels[5].textContent = 'الدورة';
+            formLabels[6].textContent = 'الرسالة';
+            
+            // Form inputs placeholders
+            formInputs[0].placeholder = 'أدخل اسمك الكامل';
+            formInputs[1].placeholder = 'أدخل بريدك الإلكتروني';
+            formInputs[2].placeholder = 'أدخل رقم هاتفك';
+            formInputs[3].placeholder = 'أدخل المدينة';
+            formInputs[6].placeholder = 'أخبرنا عن اهتماماتك أو أسئلتك';
+            
+            // Submit button
+            submitButton.textContent = 'إرسال الاستفسار';
+            
+            // Category options
+            categoryOptions[0].textContent = 'اختر فئة';
+            categoryOptions[1].textContent = 'الدورات الأساسية';
+            categoryOptions[2].textContent = 'دورات التصميم';
+            categoryOptions[3].textContent = 'الدورات المتخصصة';
+            categoryOptions[4].textContent = 'دورات التكنولوجيا';
+            categoryOptions[5].textContent = 'دورات الأعمال';
+            categoryOptions[6].textContent = 'دورات البلوكتشين والبيتكوين';
+            
+            // Course select placeholder
+            courseSelect.innerHTML = '<option value="">اختر دورة</option>';
+            
+            // Add RTL class to form
+            document.getElementById('contactForm').classList.add('rtl');
+        } else {
+            // Section title and subtitle
+            sectionTitle.textContent = 'GET IN TOUCH';
+            sectionSubtitle.textContent = 'Ready to start your AI journey? Fill out the form below and we\'ll get back to you shortly.';
+            
+            // Form labels
+            formLabels[0].textContent = 'Full Name';
+            formLabels[1].textContent = 'Email Address';
+            formLabels[2].textContent = 'Phone Number';
+            formLabels[3].textContent = 'Course Category';
+            formLabels[4].textContent = 'Course';
+            formLabels[5].textContent = 'Message';
+            
+            // Form inputs placeholders
+            formInputs[0].placeholder = 'Enter your full name';
+            formInputs[1].placeholder = 'Enter your email address';
+            formInputs[2].placeholder = 'Enter your phone number';
+            formInputs[5].placeholder = 'Tell us about your interests or questions';
+            
+            // Submit button
+            submitButton.textContent = 'Submit Inquiry';
+            
+            // Category options
+            categoryOptions[0].textContent = 'Select a category';
+            categoryOptions[1].textContent = 'Essentials Courses';
+            categoryOptions[2].textContent = 'Design Courses';
+            categoryOptions[3].textContent = 'Specialized Courses';
+            categoryOptions[4].textContent = 'Tech Courses';
+            categoryOptions[5].textContent = 'Business Courses';
+            categoryOptions[6].textContent = 'Blockchain & Bitcoin Courses';
+            
+            // Course select placeholder
+            courseSelect.innerHTML = '<option value="">Select a course</option>';
+            
+            // Remove RTL class from form
+            document.getElementById('contactForm').classList.remove('rtl');
+        }
+    }
+
+    function translateFooterSection(lang) {
+        const copyright = document.querySelector('.copyright');
+        if (lang === 'ar') {
+            copyright.textContent = '©2025 جميع الحقوق محفوظة - مركز جالاكسي للتدريب';
+        } else {
+            copyright.textContent = '© 2025 Galaxy Training Center. All Rights Reserved.';
+        }
+    }
+
+    function switchLanguage(lang) {
+        if (lang === 'ar') {
+            document.documentElement.lang = 'ar';
+            translateNavItems('ar');
+            translateHeroSection('ar');
+            translateCareerPathsSection('ar');
+            translateWhyGalaxySection('ar');
+            translateAIStatsSection('ar');
+            translateInclusionsSection('ar');
+            translateLearningExperienceSection('ar');
+            translateEligibilitySection('ar');
+            translateContactSection('ar');
+            translateFooterSection('ar');
+            document.querySelector('.lang-btn:nth-child(1)').classList.remove('active');
+            document.querySelector('.lang-btn:nth-child(3)').classList.add('active');
+        } else {
+            document.documentElement.lang = 'en';
+            translateNavItems('en');
+            translateHeroSection('en');
+            translateCareerPathsSection('en');
+            translateWhyGalaxySection('en');
+            translateAIStatsSection('en');
+            translateInclusionsSection('en');
+            translateLearningExperienceSection('en');
+            translateEligibilitySection('en');
+            translateContactSection('en');
+            translateFooterSection('en');
+            document.querySelector('.lang-btn:nth-child(1)').classList.add('active');
+            document.querySelector('.lang-btn:nth-child(3)').classList.remove('active');
+        }
+    }
+    </script>
 </body>
 </html>

@@ -5,7 +5,8 @@ const courses = {
     essentials: [
         { id: '2317', name: 'Everyone', image: '1.png' },
         { id: '28178', name: 'Foundation', image: '2.png' },
-        { id: '14803', name: 'Prompt Level 1', image: '3.png' },
+        { id: '1067', name: 'Prompt Level 1', image: '3.png' },
+        { id: '14803', name: 'Prompt Level 2', image: '4.png' },
         { id: '294', name: 'Executive', image: '5.png' }
     ],
     design: [
@@ -16,7 +17,9 @@ const courses = {
         { id: '2518', name: 'Government', image: '8.png' },
         { id: '2520', name: 'Healthcare', image: '9.png' },
         { id: '25429', name: 'Chief AI Officer', image: '10.png' },
-        { id: '1091', name: 'AI for Legal', image: '11.png' }
+        { id: '1091', name: 'AI for Legal', image: '11.png' },
+        { id: '1083', name: 'AI+ Learning & Development', image: '33.png', badge: 'new', duration: '6 Weeks', level: 'Beginner' },
+        { id: '1077', name: 'AI+ Educator', image: '41.png', badge: 'new', duration: '6 Weeks', level: 'Beginner' }
     ],
     tech: [
         { id: '1114', name: 'Ethical Hacker', image: '12.png' },
@@ -34,13 +37,23 @@ const courses = {
         { id: '1125', name: 'Quantum', image: '24.png' }
     ],
     business: [
+        { id: '1075', name: 'Project Manager', image: '25.png' },
         { id: '1085', name: 'Product Manager', image: '26.png' },
         { id: '1071', name: 'Marketing', image: '27.png' },
-        { id: '14803', name: 'Sales', image: '28.png' },
+        { id: '1069', name: 'Sales', image: '28.png' },
         { id: '1089', name: 'Finance', image: '29.png' },
         { id: '14800', name: 'Supply Chain', image: '30.png' },
-        { id: '1073', name: 'Human Resources', image: '31.png' },
-        { id: '32', name: 'Customer Service', image: '32.png' }
+        { id: '1087', name: 'Human Resources', image: '31.png' },
+        { id: '1073', name: 'Customer Service', image: '32.png' },
+        { id: '971', name: 'Ethics', image: '40.png' },
+    ],
+    blockchain: [
+        { id: '1736', name: 'Bitcoin+ Executive', image: '34.png', badge: 'new', duration: '6 Weeks', level: 'Beginner' },
+        { id: '2402', name: 'Bitcoin+ Everyone', image: '35.png', badge: 'new', duration: '6 Weeks', level: 'Beginner' },
+        { id: '335', name: 'Bitcoin+ Developer', image: '37.png', duration: '8 Weeks', level: 'Beginner' },
+        { id: '1127', name: 'Bitcoin+ Security', image: '36.png', duration: '8 Weeks', level: 'Beginner' },
+        { id: '1477', name: 'Blockchain+ Developer', image: '38.png', badge: 'new', duration: '6 Weeks', level: 'Beginner' },
+        { id: '298', name: 'Blockchain+ Executive', image: '39.png', badge: 'new', duration: '6 Weeks', level: 'Beginner' }
     ]
 };
 

@@ -7,8 +7,12 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'Tajawal', sans-serif;
   font-size: 16px;
   line-height: 1.6;
   color: #333333;
@@ -16,9 +20,91 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', 'Cairo', sans-serif;
   font-weight: 600;
   line-height: 1.3;
+}
+
+/* RTL Font Support */
+html[lang="ar"] body {
+  font-family: 'Tajawal', sans-serif;
+}
+
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4,
+html[lang="ar"] h5,
+html[lang="ar"] h6 {
+  font-family: 'Cairo', sans-serif;
+}
+
+html[lang="ar"] .btn {
+  font-family: 'Cairo', sans-serif;
+}
+
+html[lang="ar"] .section-title {
+  font-family: 'Cairo', sans-serif;
+}
+
+html[lang="ar"] .section-subtitle {
+  font-family: 'Tajawal', sans-serif;
+}
+
+html[lang="ar"] .hero-title {
+  font-family: 'Cairo', sans-serif;
+}
+
+html[lang="ar"] .hero-subtitle {
+  font-family: 'Tajawal', sans-serif;
+}
+
+html[lang="ar"] .category-title {
+  font-family: 'Cairo', sans-serif;
+}
+
+html[lang="ar"] .path-title {
+  font-family: 'Cairo', sans-serif;
+}
+
+html[lang="ar"] .benefit-title {
+  font-family: 'Cairo', sans-serif;
+}
+
+html[lang="ar"] .benefit-description {
+  font-family: 'Tajawal', sans-serif;
+}
+
+html[lang="ar"] .inclusion-title {
+  font-family: 'Cairo', sans-serif;
+}
+
+html[lang="ar"] .inclusion-description {
+  font-family: 'Tajawal', sans-serif;
+}
+
+html[lang="ar"] .step-title {
+  font-family: 'Cairo', sans-serif;
+}
+
+html[lang="ar"] .step-description {
+  font-family: 'Tajawal', sans-serif;
+}
+
+html[lang="ar"] .eligibility-subtitle {
+  font-family: 'Tajawal', sans-serif;
+}
+
+html[lang="ar"] .form-label {
+  font-family: 'Cairo', sans-serif;
+}
+
+html[lang="ar"] .form-control {
+  font-family: 'Tajawal', sans-serif;
+}
+
+html[lang="ar"] .copyright {
+  font-family: 'Tajawal', sans-serif;
 }
 
 a {
@@ -87,6 +173,7 @@ img {
   font-size: 2.25rem;
   margin-bottom: 20px;
   position: relative;
+  font-weight: 500;
 }
 
 .section-title::after {
@@ -137,7 +224,7 @@ img {
 .nav-list {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
 }
 
 .nav-link {
@@ -278,6 +365,38 @@ img {
   margin-top: 25px;
 }
 
+/* Mobile Responsive Styles for Arabic Hero */
+@media (max-width: 768px) {
+  html[lang="ar"] .hero-title {
+    font-size: 1.75rem !important;
+    line-height: 1.3;
+  }
+  
+  html[lang="ar"] .hero-subtitle {
+    font-size: 1rem !important;
+    line-height: 1.4;
+  }
+  
+  html[lang="ar"] .hero-text {
+    font-size: 0.9rem !important;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  html[lang="ar"] .hero-title {
+    font-size: 1.5rem !important;
+  }
+  
+  html[lang="ar"] .hero-subtitle {
+    font-size: 0.8rem !important;
+  }
+  
+  html[lang="ar"] .hero-text {
+    font-size: 0.8rem !important;
+  }
+}
+
 /* Eligibility Section */
 .eligibility {
   background-color: var(--light-gray);
@@ -288,11 +407,22 @@ img {
 }
 
 .eligibility-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 30px;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.eligibility-subtitle.rtl {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.eligibility-subtitle i {
+  font-size: 1.4rem;
 }
 
 .eligibility-grid {
@@ -338,7 +468,7 @@ img {
 
 .feature-title {
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 10px;
   color: var(--dark-gray);
 }
@@ -380,6 +510,7 @@ img {
 .inclusion-title {
   font-size: 1.25rem;
   margin-bottom: 10px;
+  font-weight: 500;
 }
 
 .inclusion-description {
@@ -463,6 +594,7 @@ img {
 .step-title {
   font-size: 1.25rem;
   margin-bottom: 10px;
+  font-weight: 500;
 }
 
 .step-description {
@@ -485,6 +617,7 @@ img {
   color: var(--dark-gray);
   border-left: 4px solid var(--primary-blue);
   padding-left: 15px;
+  font-weight: 500;
 }
 
 .paths-grid {
@@ -720,7 +853,7 @@ img {
 
 /* Why Choose Galaxy Section */
 .why-galaxy {
-  background-color: var(--light-gray);
+  background-color: #ffffff;
 }
 
 .benefits-grid {
@@ -735,7 +868,7 @@ img {
   padding: 30px;
   background-color: var(--white);
   border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -766,11 +899,34 @@ img {
   font-size: 1.25rem;
   margin-bottom: 10px;
   color: var(--dark-gray);
+  font-weight: 500;
 }
 
 .benefit-description {
   color: var(--medium-gray);
   font-size: 0.875rem;
+}
+
+/* RTL Support for Why Choose Galaxy Section */
+html[lang="ar"] .benefit-item {
+  flex-direction: row-reverse;
+}
+
+html[lang="ar"] .benefit-icon {
+  margin-right: 0;
+  margin-left: 20px;
+}
+
+html[lang="ar"] .benefit-content {
+  text-align: right;
+}
+
+html[lang="ar"] .benefit-title {
+  text-align: right;
+}
+
+html[lang="ar"] .benefit-description {
+  text-align: right;
 }
 
 /* Contact Form Section */
@@ -797,48 +953,101 @@ img {
 }
 
 .contact-form {
-  padding: 40px;
-  background-color: var(--white);
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #fff;
   border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.form-group {
-  margin-bottom: 20px;
+.contact-form .form-group {
+  margin-bottom: 1.5rem;
 }
 
-.form-label {
+.contact-form label {
   display: block;
-  margin-bottom: 8px;
-  font-weight: 500;
-  color: var(--dark-gray);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
 }
 
-.form-control {
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
   width: 100%;
-  padding: 12px 16px;
-  font-size: 1rem;
-  border: 1px solid var(--medium-gray);
+  padding: 0.75rem;
+  border: 1px solid #ddd;
   border-radius: 4px;
-  background-color: var(--light-gray);
-  color: var(--dark-gray);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
 }
 
-.form-control:focus {
-  border-color: var(--primary-blue);
-  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.2);
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: #007bff;
   outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
-.form-control::placeholder {
-  color: var(--medium-gray);
-  opacity: 0.7;
-}
-
-textarea.form-control {
+.contact-form textarea {
   min-height: 120px;
   resize: vertical;
+}
+
+.contact-form button[type="submit"] {
+  width: 100%;
+  padding: 1rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button[type="submit"]:hover {
+  background: #0056b3;
+}
+
+.contact-form button[type="submit"]:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.form-success-message,
+.form-error-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.form-success-message {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.form-error-message {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Footer */
@@ -901,6 +1110,17 @@ textarea.form-control {
 .copyright {
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.7);
+}
+
+/* Phone number formatting for mobile */
+@media (max-width: 768px) {
+    .footer-contact .phone-number {
+        display: none;
+    }
+    
+    .footer-contact a[href^="tel:"]::after {
+        content: attr(data-mobile-number);
+    }
 }
 
 /* Responsive Styles */
@@ -999,7 +1219,7 @@ textarea.form-control {
   }
   
   .contact-form {
-    padding: 30px 20px;
+    padding: 1.5rem;
   }
 }
 
@@ -1128,63 +1348,22 @@ textarea.form-control {
 }
 
 /* Mobile Menu */
-.mobile-menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    margin-left: 20px;
-}
-
 @media (max-width: 768px) {
-    .mobile-menu-toggle {
-        display: block;
-    }
-
-    .menu-icon {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: var(--primary-blue);
-        position: relative;
-        transition: background-color 0.3s ease;
-    }
-
-    .menu-icon::before,
-    .menu-icon::after {
-        content: '';
-        position: absolute;
-        width: 25px;
-        height: 3px;
-        background-color: var(--primary-blue);
-        transition: transform 0.3s ease;
-    }
-
-    .menu-icon::before {
-        top: -8px;
-    }
-
-    .menu-icon::after {
-        bottom: -8px;
-    }
-
     .nav {
         position: fixed;
         top: 80px;
         right: -100%;
         width: 300px;
+        height: auto;
         background: white;
         padding: 20px;
         transition: right 0.3s ease;
         z-index: 1000;
         box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
         border-radius: 0 0 0 8px;
+        overflow-y: auto;
     }
-/* Specific style for the nav bar contact button */
-.nav-list .nav-link.btn.btn-primary {
-  padding: 8px 20px;
-}
+
     .nav.active {
         right: 0;
     }
@@ -1192,24 +1371,46 @@ textarea.form-control {
     .nav-list {
         flex-direction: column;
         align-items: flex-start;
+        gap: 15px;
+        width: 100%;
     }
 
     .nav-list li {
-        margin: 10px 0;
+        width: 100%;
+        margin: 0;
     }
 
-    .mobile-menu-toggle.active .menu-icon {
-        background-color: transparent;
+    .nav-list .nav-link {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        font-size: 1.1rem;
     }
 
-    .mobile-menu-toggle.active .menu-icon::before {
-        transform: rotate(45deg);
-        top: 0;
+    .nav-list .nav-link.btn.btn-primary {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
     }
 
-    .mobile-menu-toggle.active .menu-icon::after {
-        transform: rotate(-45deg);
-        bottom: 0;
+    /* RTL Support for Mobile Menu */
+    html[lang="ar"] .nav {
+        right: auto;
+        left: -100%;
+        border-radius: 0 0 8px 0;
+    }
+
+    html[lang="ar"] .nav.active {
+        left: 0;
+        right: auto;
+    }
+
+    html[lang="ar"] .nav-list {
+        align-items: flex-end;
+    }
+
+    html[lang="ar"] .nav-list .nav-link {
+        text-align: right;
     }
 }
 
@@ -1377,4 +1578,149 @@ textarea.form-control {
 .exam-detail-desc {
   font-weight: 400;
   color: #222;
+}
+
+/* Mobile Section Reordering */
+@media (max-width: 768px) {
+    .section {
+        order: 0; /* Default order */
+    }
+    
+    .hero {
+        order: 1;
+    }
+    
+    .career-paths {
+        order: 2;
+    }
+    
+    .why-galaxy {
+        order: 3;
+    }
+    
+    .ai-stats {
+        order: 4;
+    }
+    
+    .inclusions {
+        order: 5;
+    }
+    
+    .learning-experience {
+        order: 6;
+    }
+    
+    .eligibility {
+        order: 7;
+    }
+    
+    .contact {
+        order: 8;
+    }
+    
+    .footer {
+        order: 9;
+    }
+}
+
+/* Add display flex to body to enable ordering */
+@media (max-width: 768px) {
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* Updated Language Switcher Styles */
+#language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 20px;
+}
+
+#language-switcher .lang-btn {
+  padding: 5px 10px;
+  border: 1px solid #0066ff;
+  background-color: transparent;
+  color: #333;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#language-switcher .lang-btn:hover {
+  background-color: #f0f0f0;
+}
+
+#language-switcher .lang-btn.active {
+  color: #0066ff;
+}
+
+#language-switcher .lang-separator {
+  color: #0066ff;
+  font-weight: bold;
+}
+
+/* RTL Support */
+html[dir="rtl"] {
+  text-align: right;
+}
+
+html[dir="rtl"] #language-switcher {
+  flex-direction: row-reverse;
+}
+
+/* RTL Support for Category Titles */
+html[lang="ar"] .category-title {
+    text-align: right;
+    direction: rtl;
+}
+
+html[lang="ar"] .category-title .text-blue {
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+/* Contact Form RTL Support */
+.contact-form.rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+.contact-form.rtl .form-label {
+    text-align: right;
+}
+
+.contact-form.rtl .form-control {
+    text-align: right;
+}
+
+.contact-form.rtl .form-control::placeholder {
+    text-align: right;
+}
+
+.contact-form.rtl select.form-control {
+    padding-right: 10px;
+    padding-left: 30px;
+    background-position: left 10px center;
+}
+
+.contact-form.rtl textarea.form-control {
+    text-align: right;
+}
+
+/* RTL Support for Form Validation Messages */
+.contact-form.rtl .form-success-message,
+.contact-form.rtl .form-error-message {
+    text-align: right;
+}
+
+/* RTL Support for Form Loading State */
+.contact-form.rtl button[type="submit"] {
+    direction: rtl;
+}
+
+.contact-form.rtl button[type="submit"] i {
+    margin-left: 8px;
+    margin-right: 0;
 }
